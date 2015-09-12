@@ -19,6 +19,11 @@ public class ShowUI : MonoBehaviour {
 		tower.coord = gameObject.transform.position;
 		tower.name = gameObject.transform.name;
 
+		if (transform.parent.name == "TowersTop") {
+			tower.location = "top";
+		} else {
+			tower.location = "down";
+		}
 
 		if(GameObject.Find("Build").GetComponent<UnityEngine.UI.Image>().enabled == true)
 		{

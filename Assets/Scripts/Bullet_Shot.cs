@@ -20,7 +20,7 @@ public class Bullet_Shot : MonoBehaviour
 
         if (time > destroy_time)
         {
-			  GameObject bullet    =   (GameObject)Instantiate(prefab,new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z),this.transform.rotation);
+			GameObject bullet    =   (GameObject)Instantiate(prefab,new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z),new Quaternion(0, 180, 0, 0));
 			  bullet.transform.parent = this.transform;
 			time = 0;
 		}
