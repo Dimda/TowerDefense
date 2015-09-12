@@ -57,7 +57,7 @@ public class Portal : MonoBehaviour {
 		if(status == GameStatus.GamePlay)
 		{
 
-			if(currentMonster < MonsterList.GetWaveMonsterCount())
+			if(MonsterList.GetMonsterID(currentLevelNumber,currentWave,currentMonster) != -1)
 			{
 				if(Time.time - lastMonsterSpawnTime > monsterSpawnGap)
 				{
@@ -68,7 +68,7 @@ public class Portal : MonoBehaviour {
 
 					monster = GameObject.Instantiate(monsters[MonsterList.GetMonsterID(currentLevelNumber,currentWave,currentMonster)]);
 					monster.SetActive(true);
-					monster.transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z);
+					monster.transform.position = new Vector3(transform.position.x,monster.transform.position.y,transform.position.z);
 
 					lastMonsterSpawnTime = Time.time;
 
