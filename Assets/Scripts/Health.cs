@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Health : MonoBehaviour {
-
+	Monster_Event monster_event;
 	[SerializeField]
 	private int health;
 
@@ -12,11 +12,16 @@ public class Health : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		health = defaultHealth;
+		monster_event = GetComponent<Monster_Event>();
 	}
-	
+
+	private void OnTriggerEnter(Collider other)
+	{
+		health -= other.GetComponent<Monster_Event>().attack;
+	}
 	// Update is called once per frame
 	void Update () {
-		
+		Debug.Log (health);
 	}
 
 	public int GetHealth()
@@ -26,14 +31,14 @@ public class Health : MonoBehaviour {
 
 	void OnDamage(int amount)
 	{
-		if(amount < 0)
+		/*if(amount < 0)
 		{
 			return;
 		}
 
 		Debug.Log(gameObject.name + " recieved " + amount + " damage!");
 
-		health -= amount;
+		health -= amount;*/
 
 		if(health <= 0)
 		{

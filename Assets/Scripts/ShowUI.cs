@@ -25,13 +25,12 @@ public class ShowUI : MonoBehaviour {
 			tower.location = "down";
 		}
 
-		if(GameObject.Find("Build").GetComponent<UnityEngine.UI.Image>().enabled == true)
+		if(GameObject.Find("Build").GetComponent<UnityEngine.UI.Image>().enabled == false)
 		{
-			GameObject.Find("Build").GetComponent<UnityEngine.UI.Image>().enabled = false;
-			GameObject.Find("Text").GetComponent<UnityEngine.UI.Text>().enabled = false;
-		}else{
 			GameObject.Find("Build").GetComponent<UnityEngine.UI.Image>().enabled = true;
-			GameObject.Find("Text").GetComponent<UnityEngine.UI.Text>().enabled = true;
+			GameObject.Find("Close").GetComponent<UnityEngine.UI.Image>().enabled = true;
+			GameObject.Find("CloseText").GetComponent<UnityEngine.UI.Text>().enabled = true;
+			GameObject.Find("BuildText").GetComponent<UnityEngine.UI.Text>().enabled = true;
 		}
 	}
 }

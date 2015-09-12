@@ -19,13 +19,22 @@ public class BuildTower : MonoBehaviour {
 	public void logData()
 	{
 		GameObject.Find("Build").GetComponent<UnityEngine.UI.Image>().enabled = false;
-		GameObject.Find("Text").GetComponent<UnityEngine.UI.Text>().enabled = false;
+		GameObject.Find("Close").GetComponent<UnityEngine.UI.Image>().enabled = false;
+		GameObject.Find("BuildText").GetComponent<UnityEngine.UI.Text>().enabled = false;
+		GameObject.Find("CloseText").GetComponent<UnityEngine.UI.Text>().enabled = false;
 		Destroy (GameObject.Find(name));
 		if (location == "top") {
-			Instantiate (gun, new Vector3 (coord.x, coord.y + 2, coord.z), Quaternion.Euler (0, -90, 0));
+			Instantiate (gun, new Vector3 (coord.x, coord.y , coord.z), Quaternion.Euler (0, -90, 0));
 		} else {
-			Instantiate (gun, new Vector3 (coord.x, coord.y + 2, coord.z), Quaternion.Euler (0, 90, 0));
+			Instantiate (gun, new Vector3 (coord.x, coord.y , coord.z), Quaternion.Euler (0, 90, 0));
 		}
 
+	}
+	public void close()
+	{
+		GameObject.Find("Build").GetComponent<UnityEngine.UI.Image>().enabled = false;
+		GameObject.Find("Close").GetComponent<UnityEngine.UI.Image>().enabled = false;
+		GameObject.Find("CloseText").GetComponent<UnityEngine.UI.Text>().enabled = false;
+		GameObject.Find("BuildText").GetComponent<UnityEngine.UI.Text>().enabled = false;
 	}
 }
