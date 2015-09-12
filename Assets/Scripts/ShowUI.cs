@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class ShowUI : MonoBehaviour {
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -13,7 +14,11 @@ public class ShowUI : MonoBehaviour {
 	}
 	void OnMouseDown()
 	{
-		Destroy (gameObject);
+		GameObject camera = GameObject.Find("Camera");
+		BuildTower tower = camera.GetComponent<BuildTower>();
+		tower.coord = gameObject.transform.position;
+		tower.name = gameObject.transform.name;
+
 
 		if(GameObject.Find("Build").GetComponent<UnityEngine.UI.Image>().enabled == true)
 		{
@@ -23,7 +28,6 @@ public class ShowUI : MonoBehaviour {
 			GameObject.Find("Build").GetComponent<UnityEngine.UI.Image>().enabled = true;
 			GameObject.Find("Text").GetComponent<UnityEngine.UI.Text>().enabled = true;
 		}
-
 	}
 }
 
